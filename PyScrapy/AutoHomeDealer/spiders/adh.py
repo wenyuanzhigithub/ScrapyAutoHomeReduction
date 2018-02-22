@@ -62,7 +62,7 @@ class AdhSpider(scrapy.Spider):
                 # companyurl = pic.xpath('./li[5]/a[@class="link"]/@href').extract()[0]
                 # item['companyurl'] = companyurl
                 # print item['company'],companyurl
-                # 返回爬取到的信息
+                # 返回爬取信息
                     reductionurl = "http://dealer.bitauto.com" + item['newsurl']
                     yield scrapy.Request(reductionurl, callback=self.parse_item, meta={'item': item})
                 # yield生成请求，将新的url加入到爬取队列中，cl为url，callback为新的爬取调用的parse名称，这个项目新定义的为parse_item。
