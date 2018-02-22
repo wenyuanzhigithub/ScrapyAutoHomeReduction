@@ -67,21 +67,7 @@ class AdhSpider(scrapy.Spider):
                     yield scrapy.Request(reductionurl, callback=self.parse_item, meta={'item': item})
                 # yield生成请求，将新的url加入到爬取队列中，cl为url，callback为新的爬取调用的parse名称，这个项目新定义的为parse_item。
 
-            # if response.url.find("pageIndex") == -1:
-            #     pagesum = response.xpath('//span[@class="num data-dealer-count"]/text()').extract()[0]
-            #     # print pagesum
-            #     pagecount = int(pagesum) / 15 + 1
-            #     # print pagecount
-            #     i = 2
-            #     while i <= pagecount:
-            #         # print response.url,1
-            #         url = response.url + "?countyId=0&brandId=0&seriesId=0&factoryId=0&pageIndex=" + str(
-            #             i) + "&kindId=1&orderType=0&isSale=0"
-            #         # print url,2
-            #         print 3
-            #         yield scrapy.Request(url, callback=self.parse, meta={
-            #             'item': item})  # yield生成请求，将新的url加入到爬取队列中，cl为url，callback为新的爬取调用的parse名称.
-            #         i = i + 1
+          
         except:
             print response.meta['item']
 
