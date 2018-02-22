@@ -36,12 +36,7 @@ class AdhSpider(scrapy.Spider):
             item['companyurl'] = url
             yield scrapy.Request(url, callback=self.parse, meta={'item': item})
 
-        # for dealer in dealer_list:
-        #     item = AutohomedealerItem()
-        #     item['dealer'] = dealer[0]
-        #     url="http://dealer.bitauto.com/"+str(dealer[0])+"/news_2.html";
-        #     item['companyurl'] = url
-        #     yield scrapy.Request(url, callback=self.parse, meta={'item': item})
+       
 
     # 设置一个空集合
     # url_set = set()
