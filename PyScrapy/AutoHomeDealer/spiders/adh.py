@@ -26,7 +26,7 @@ class AdhSpider(scrapy.Spider):
 
     # PageUlrs="https://dealer.autohome.com.cn/beihai?countyId=0&brandId=0&seriesId=0&factoryId=0&pageIndex=2&kindId=1&orderType=0&isSale=0"
     def start_requests(self):
-        ms = AutoHomeDealer.SqlCon.SqlCon(host=".", user="sa", pwd="1qaz@WSX", db="testdb")
+        ms = AutoHomeDealer.SqlCon.SqlCon(host=".", user="", pwd="", db="")
         sqlstr = "SELECT DealerKey FROM [dbo].[dealerlist] where dealerkey not in (SELECT  DealerKey from [testdb].[dbo].[BitAutoPriceReduction]with(nolock) group by DealerKey)"
         dealer_list = ms.ExecQuery(sqlstr.encode('utf-8'))
         for dealer in dealer_list:
