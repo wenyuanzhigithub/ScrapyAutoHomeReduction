@@ -15,7 +15,7 @@ global strs
 strs=''
 class AutohomedealerPipeline(object):
     def process_item(self, item, spider):
-        ms = SqlCon.SqlCon(host=".", user="sa", pwd="1qaz@WSX", db="testdb")
+        ms = SqlCon.SqlCon(host=".", user="", pwd="", db="")
         try:
             print 6
             newsurl=item['newsurl']
