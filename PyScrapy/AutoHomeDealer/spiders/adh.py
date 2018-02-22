@@ -71,23 +71,7 @@ class AdhSpider(scrapy.Spider):
         except:
             print response.meta['item']
 
-            # 获取所有的地址链接
-            # urls = response.xpath("//a/@href").extract()
-            # for url in urls:
-            #     # 如果地址以http://www.xiaohuar.com/list-开头且不在集合中，则获取其信息
-            #     if url.startswith("http://www.xiaohuar.com/list-"):
-            #         if url in XhSpider.url_set:
-            #             pass
-            #         else:
-            #             XhSpider.url_set.add(url)
-            #             # 回调函数默认为parse,也可以通过from scrapy.http import Request来指定回调函数
-            #             # from scrapy.http import Request
-            #             # Request(url,callback=self.parse)
-            #             yield self.make_requests_from_url(url)
-            #     else:
-            #         pass
-            #
-            #     print("000")
+            
 
     def parse_item(self, response):
         try:
