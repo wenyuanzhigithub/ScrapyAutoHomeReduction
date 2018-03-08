@@ -15,9 +15,9 @@ class AdhSpider(scrapy.Spider):
 
     name = 'adh'
     allowed_domains = ['bitauto.com']
-    # 初始URL
+    # 初始URL易车
     start_urls = ['http://dealer.bitauto.com/100116410/news_2.html']
-    # PageUlrs="https://dealer.autohome.com.cn/beihai?countyId=0&brandId=0&seriesId=0&factoryId=0&pageIndex=2&kindId=1&orderType=0&isSale=0"
+    # 初始化汽车之家 PageUlrs="https://dealer.autohome.com.cn/beihai?countyId=0&brandId=0&seriesId=0&factoryId=0&pageIndex=2&kindId=1&orderType=0&isSale=0"
     def start_requests(self):
         ms = AutoHomeDealer.SqlCon.SqlCon(host=".", user="", pwd="", db="")
         sqlstr = "SELECT DealerKey FROM [dbo].[dealerlist] where dealerkey not in (SELECT  DealerKey from [testdb].[dbo].[BitAutoPriceReduction]with(nolock) group by DealerKey)"
