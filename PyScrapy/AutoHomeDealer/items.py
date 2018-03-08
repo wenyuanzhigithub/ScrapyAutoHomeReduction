@@ -7,11 +7,8 @@
 import scrapy
 class AutohomedealerItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    #city = scrapy.Field()
     newsurl = scrapy.Field()
     dealer = scrapy.Field()
-    #carserialname = scrapy.Field()
     carMSRP = scrapy.Field()
     carPriceReduction = scrapy.Field()
     carNakedPrice = scrapy.Field()
