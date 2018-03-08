@@ -50,9 +50,6 @@ class AdhSpider(scrapy.Spider):
                 ifpricereduction=pic.xpath('./td[@class="jade"]/text()').extract()[0]
                 if '礼包' not  in ifpricereduction:
                     item['newsurl'] = pic.xpath('./td[@class="t_l"]/a[@target="_blank"]/@href').extract()[0]
-                # companyurl = pic.xpath('./li[5]/a[@class="link"]/@href').extract()[0]
-                # item['companyurl'] = companyurl
-                # print item['company'],companyurl
                 # 返回爬取信息
                     reductionurl = "http://dealer.bitauto.com" + item['newsurl']
                     yield scrapy.Request(reductionurl, callback=self.parse_item, meta={'item': item})
