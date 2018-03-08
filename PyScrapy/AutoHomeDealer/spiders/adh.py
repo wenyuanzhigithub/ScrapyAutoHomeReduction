@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import string
 import sys
-
 import multiprocessing
 import threading as thd
 import time
@@ -9,21 +8,15 @@ import scrapy
 # 导入item中结构化数据模板
 import AutoHomeDealer.SqlCon
 from AutoHomeDealer.items import AutohomedealerItem
-
 reload(sys)
 sys.setdefaultencoding('utf8')
-
-
 
 class AdhSpider(scrapy.Spider):
 
     name = 'adh'
     allowed_domains = ['bitauto.com']
-
     # 初始URL
     start_urls = ['http://dealer.bitauto.com/100116410/news_2.html']
-
-
     # PageUlrs="https://dealer.autohome.com.cn/beihai?countyId=0&brandId=0&seriesId=0&factoryId=0&pageIndex=2&kindId=1&orderType=0&isSale=0"
     def start_requests(self):
         ms = AutoHomeDealer.SqlCon.SqlCon(host=".", user="", pwd="", db="")
@@ -40,8 +33,6 @@ class AdhSpider(scrapy.Spider):
 
     # 设置一个空集合
     # url_set = set()
-
-
     def parse(self, response):
         #   <div class="markdowns">
         #  <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td class="t_l">
